@@ -28,7 +28,7 @@ public class ChinesePreprocess extends InternalModule
 		super("ChinesePreprocess",
 				MaryDataType.PARTSOFSPEECH,
 				MaryDataType.WORDS,
-				new Locale("cn"));
+				new Locale("zh-CN"));
 	}
 
 	public MaryData process(MaryData d)
@@ -53,6 +53,7 @@ public class ChinesePreprocess extends InternalModule
 			String type = sayas.getAttribute("type");
 			logger.info("Expand sayas (cn)");
 
+			// TODO: text normalization
 		}
 
 	}
@@ -73,41 +74,9 @@ public class ChinesePreprocess extends InternalModule
 				// ignore token
 				continue;
 			}
-			Iterator<ExpansionPattern> it = ExpansionPattern.allPatterns().iterator();
-			boolean fullyExpanded = false;
-			while (!fullyExpanded && it.hasNext()) {
-				ExpansionPattern ep = (ExpansionPattern)it.next();
-				logger.debug("Now applying ep " + ep + " to token " + MaryDomUtils.getPlainTextBelow(t));
-				List<Element> expanded = new ArrayList<Element>();
-				fullyExpanded = ep.process(t, expanded);
-				// Element replacements may have been caused by ep.process());
-				// Update t and tw accordingly: the next position to look at is
-				// - if fully expanded,  the token after the last expanded token
-				// - else,
-				//    -- if no expansion occurred, the same position as before;
-				//    -- if partial expansion occurred, the first of the expanded tokens.
-				if (fullyExpanded) {
-					logger.debug("fully expanded");
-					assert !expanded.isEmpty();
-					// need to correct tw
-					Element lastToken = getLastToken(expanded);
-					assert lastToken != null;
-					tw.setCurrentNode(lastToken);
-					logger.debug("set treewalker position:" + MaryDomUtils.getPlainTextBelow((Element)tw.getCurrentNode()));
-				} else { // not fully expanded
-					if (!expanded.isEmpty()) { // partial expansion
-						logger.debug("non-final expansion");
-						// need to set t
-						t = getFirstToken(expanded);
-						assert t != null;
-						// set tw as if fully expanded, just in case no further expansions occur
-						//Element lastToken = getLastToken(expanded);
-						//assert lastToken != null;
-						tw.setCurrentNode(t);
-					}
-				}
 
-			} // all patterns
+			// TODO: text normalization
+
 		} // all tokens
 	}
 

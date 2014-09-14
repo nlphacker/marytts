@@ -7,9 +7,6 @@ import java.util.Locale;
 import marytts.datatypes.MaryData;
 import marytts.datatypes.MaryDataType;
 import marytts.datatypes.MaryXML;
-import marytts.language.ja.lib.CharacterClasses;
-import marytts.language.ja.lib.CharacterClasses.Punctuation;
-import marytts.language.ja.lib.CharacterClasses.PunctuationTypes;
 import marytts.modules.InternalModule;
 import marytts.util.dom.MaryDomUtils;
 
@@ -21,20 +18,22 @@ import org.w3c.dom.Text;
 import org.w3c.dom.traversal.DocumentTraversal;
 import org.w3c.dom.traversal.NodeFilter;
 import org.w3c.dom.traversal.NodeIterator;
+import java.io.StringReader;
 
+import com.chenlb.mmseg4j.ComplexSeg;
+import com.chenlb.mmseg4j.Dictionary;
+import com.chenlb.mmseg4j.MMSeg;
+import com.chenlb.mmseg4j.Seg;
+import com.chenlb.mmseg4j.Word;
 
 public class ChineseTokeniserAndPosTagger extends InternalModule
 {
     public ChineseTokeniserAndPosTagger() {
-    	//declares input as RAWMARYXML and output as TOKENS for locale ja
-    	super("ChineseTokeniser", MaryDataType.RAWMARYXML, MaryDataType.PARTSOFSPEECH, new Locale("ja"));
+    	//declares input as RAWMARYXML and output as TOKENS for locale zh-CN
+    	super("ChineseTokeniser", MaryDataType.RAWMARYXML, MaryDataType.PARTSOFSPEECH, new Locale("zh-CN"));
     	
-    	//use kuromoji to find pronunciations and POS tags
-    	this.tokenizer = Tokenizer.builder().build();
     }
     
-    Tokenizer tokenizer;
-
     public MaryData process(MaryData d)
     throws Exception
     {    
@@ -55,27 +54,25 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
         Node paragraphNode;
 
         while ((paragraphNode = ni.nextNode()) != null) {
-        	
+		String EndPunctuations = "？！。";
+		String AllPunctuations = "？！。“‘（）；?!.\"'()[];";
+			
         	String text = MaryDomUtils.getPlainTextBelow(paragraphNode);
         	
-        	//cut into phrases
+        	//cut into sentences 
         	List<String> phrases = new ArrayList<String>();
         	String currPhrase = "";
         	for(int i=0;i<text.length();i++)
         	{
-        		Punctuation punctuationEnum = CharacterClasses.getPunctuation(text.charAt(i));
-        		if(punctuationEnum!=null && punctuationEnum.getPunctuationType()==PunctuationTypes.Space)
-        		{
-        			//Japanese usually doesn't have spaces and they will prevent the POS tagger from parsing
-        			continue;
-        		}
+			boolean endofSentence = EndPunctuations.indexOf(text.charAt(i)) >= 0;			
         		currPhrase += text.charAt(i);
-        		if(punctuationEnum!=null && punctuationEnum.getPunctuationType()==PunctuationTypes.Period)
+        		if(endofSentence)
         		{
         			phrases.add(currPhrase);
         			currPhrase = "";
         		}
         	}
+
         	if(currPhrase.length()>0)
         	{
         		phrases.add(currPhrase);
@@ -87,51 +84,30 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
         	for(String phrase:phrases)
         	{
         		Element sentence = MaryXML.createElement(doc, MaryXML.SENTENCE);
-        		
-	            for (Token parserToken : tokenizer.tokenize(phrase)) {
-	                
-	            	boolean isPunctuationToken = true;
-	            	for(int i=0;i<parserToken.getSurfaceForm().length();i++)
-	            	{
-	            		if(CharacterClasses.getPunctuation(parserToken.getSurfaceForm().charAt(i))==null)
-	            		{
-	            			isPunctuationToken = false;
-	            			break;
-	            		}
-	            	}
-	            	
-	            	Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
-	            	
-	            	if(isPunctuationToken)
-	            	{
-	            		createdToken.setAttribute("pos", "$"+parserToken.getSurfaceForm());
-	            	}else{
-		            	createdToken.setAttribute("pos", parserToken.getPartOfSpeech());
-		            	
-		            	if(parserToken.getReading()!=null && parserToken.getReading().length()>0) //only if in underlying dictionary
-		            	{
-		            		createdToken.setAttribute("sounds_like", parserToken.getReading());
-		            	}
-		            	
-		            	//the part justifying the POS tagger
-		            	if( (parserToken.getSurfaceForm().equals("は") ||
-		            			parserToken.getSurfaceForm().equals("ハ"))
-		            			&& parserToken.getPartOfSpeech().equals("助詞,係助詞,*,*"))
-		            	{
-		            		createdToken.setAttribute("sounds_like", "ワ");	
-		            	}
-		            	
-		            	//TODO: Inoue != イノーエ
-		            	//TODO: set g2p properly (always lexicon + phonology rules,
-		            	//with little way to get a pronunciation in case of unknown kanji word)
-	            	}
-	            	 MaryDomUtils.setTokenText(createdToken, parserToken.getSurfaceForm());
-	            	
-	            	 sentence.appendChild(createdToken);
-	       
-	            }
+
+			Dictionary dic = Dictionary.getInstance();
+			Seg seg = null;
+			seg = new ComplexSeg(dic);
+			MMSeg mmSeg = new MMSeg(new StringReader(phrase), seg);
+			Word word = null;
+			while((word=mmSeg.next())!=null) {
+		            	Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
+
+				if (AllPunctuations.indexOf(word.getString()) >= 0) {
+		            		createdToken.setAttribute("pos", "$" + word.getString());					
+				}
+				else {
+					createdToken.setAttribute("pos", "CONTENT");
+				}
+
+  	            	        MaryDomUtils.setTokenText(createdToken, word.getString());
+
+				System.out.print(word.getString()+" -> "+word.getStartOffset());
+				System.out.println(", "+word.getEndOffset()+", "+ word.getType());
+    	            	        sentence.appendChild(createdToken);
+			}	
 	            
-	            paragraphNode.appendChild(sentence);
+			paragraphNode.appendChild(sentence);
         	}
         }
         
@@ -140,6 +116,7 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
         result.setDocument(doc);
         return result;
     }
+
     public static void setParagraphText(Element t, String s)
     {
         if (!t.getNodeName().equals(MaryXML.PARAGRAPH))

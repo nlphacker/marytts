@@ -7,7 +7,7 @@
 		<version>5.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>marytts-lang-ja</artifactId>
+	<artifactId>marytts-lang-cn</artifactId>
 	<name>${project.artifactId}</name>
 
 	<dependencies>
@@ -39,26 +39,16 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.atilika.kuromoji</groupId>
-		    <artifactId>kuromoji</artifactId>
-  	            <type>jar</type>
-		    <version>0.7.7</version>
-		    <scope>compile</scope>
+			<groupId>com.chenlb.mmseg4j</groupId>
+			<artifactId>mmseg4j-core</artifactId>
+			<version>1.10.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.belerweb</groupId>
+			<artifactId>pinyin4j</artifactId>
+			<version>2.5.0</version>
 		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-		    <id>Atilika Open Source repository</id>
-		    <name>Atilika Open Source repository</name>
-		    <releases>  
-		        <enabled>true</enabled>  
-		    </releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		    <url>http://www.atilika.org/nexus/content/repositories/atilika</url>
-		</repository>
-	</repositories>
 	<build>
 		<plugins>
 			<plugin>

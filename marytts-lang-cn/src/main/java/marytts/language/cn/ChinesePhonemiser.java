@@ -33,7 +33,7 @@ public class ChinesePhonemiser extends InternalModule
     public ChinesePhonemiser()
     throws IOException,  MaryConfigurationException
     {
-        super("Phonemiser", MaryDataType.WORDS, MaryDataType.PHONEMES, new Locale("cn"));
+        super("Phonemiser", MaryDataType.WORDS, MaryDataType.PHONEMES, new Locale("zh-CN"));
     }
     
     public MaryData process(MaryData d)
@@ -116,7 +116,7 @@ public class ChinesePhonemiser extends InternalModule
     {
     	g2pMethod.append("rules");
 
-	// TODO:
+	// TODO: generate phonemes
     	return null;
     }
     
