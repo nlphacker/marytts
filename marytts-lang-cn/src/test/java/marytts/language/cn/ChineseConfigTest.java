@@ -25,15 +25,18 @@ public class ChineseConfigTest {
 	
 	@Test
 	public void canGet() {
-		MaryConfig m = MaryConfig.getLanguageConfig(new Locale("cn"));
+		MaryConfig m = MaryConfig.getLanguageConfig(new Locale("zh"));
+                System.out.print("here1\n");
 		assertNotNull(m);
-		assertTrue(((LanguageConfig)m).getLocales().contains(new Locale("cn")));
+                System.out.print("here2\n");
+		assertTrue(((LanguageConfig)m).getLocales().contains(new Locale("zh")));
+                System.out.print("here3\n");
 	}
 	
 	
 	@Test
 	public void hasChineseLocale() throws MaryConfigurationException {
 		LanguageConfig e = new ChineseConfig();
-		assertTrue(e.getLocales().contains(new Locale("cn")));
+		assertTrue(e.getLocales().contains(new Locale("zh")));
 	}
 }

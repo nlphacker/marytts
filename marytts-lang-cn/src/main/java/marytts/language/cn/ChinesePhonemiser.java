@@ -33,7 +33,7 @@ public class ChinesePhonemiser extends InternalModule
     public ChinesePhonemiser()
     throws IOException,  MaryConfigurationException
     {
-        super("Phonemiser", MaryDataType.WORDS, MaryDataType.PHONEMES, new Locale("zh-CN"));
+        super("Phonemiser", MaryDataType.WORDS, MaryDataType.PHONEMES, new Locale("zh"));
     }
     
     public MaryData process(MaryData d)

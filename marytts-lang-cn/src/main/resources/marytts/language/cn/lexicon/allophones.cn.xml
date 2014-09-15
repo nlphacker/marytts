@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <allophones features="vlng vheight vfront vrnd ctype cplace cvox"
-	name="sampa" xml:lang="zh-CN">
+	name="sampa" xml:lang="zh">
 	<silence ph="_" />
 	<!--かくれこころのかけら [k] -->
 	<consonant cplace="v" ctype="s" cvoice="-" ph="k" />

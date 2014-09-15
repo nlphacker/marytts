@@ -1,1 +1,15 @@
+*how to sync with master upstream
 git remote add upstream https://github.com/marytts/marytts.git
+
+clone marytts 
+	git pull upstream master
+
+
+*build and run local 
+local server install
+	https://github.com/marytts/marytts/wiki/Local-MaryTTS-Server-Installation
+
+  how to build and use
+	mvn install
+	cp ~/.m2/repository/org/atilika/kuromoji/kuromoji/0.7.7/kuromoji-0.7.7.jar  target/marytts-5.2-SNAPSHOT/lib/
+

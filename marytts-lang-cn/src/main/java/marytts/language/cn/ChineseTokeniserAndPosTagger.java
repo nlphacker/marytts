@@ -30,7 +30,7 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
 {
     public ChineseTokeniserAndPosTagger() {
     	//declares input as RAWMARYXML and output as TOKENS for locale zh-CN
-    	super("ChineseTokeniser", MaryDataType.RAWMARYXML, MaryDataType.PARTSOFSPEECH, new Locale("zh-CN"));
+    	super("ChineseTokeniser", MaryDataType.RAWMARYXML, MaryDataType.PARTSOFSPEECH, new Locale("zh"));
     	
     }
     

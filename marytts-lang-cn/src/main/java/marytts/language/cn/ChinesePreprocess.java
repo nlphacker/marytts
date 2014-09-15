@@ -28,7 +28,7 @@ public class ChinesePreprocess extends InternalModule
 		super("ChinesePreprocess",
 				MaryDataType.PARTSOFSPEECH,
 				MaryDataType.WORDS,
-				new Locale("zh-CN"));
+				new Locale("zh"));
 	}
 
 	public MaryData process(MaryData d)
