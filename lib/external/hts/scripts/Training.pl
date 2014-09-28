@@ -1207,6 +1207,13 @@ sub make_data_gv {
       shell("touch $gvdatdir/tmp.cmp");
       $i = 0;
 
+      # skip data error when *.lab doesn't exit
+      if (!open( F, "$gvfaldir/$base.lab" ))
+      {
+         next;
+      }     
+      close(F);
+
       foreach $type (@cmp) {
          if ( $nosilgv && @slnt > 0 ) {
             shell("rm -f $gvdatdir/tmp.$type");
