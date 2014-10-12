@@ -19,5 +19,7 @@
 		<module>marytts-lang-it</module>
 		<module>marytts-lang-fr</module>
 		<module>marytts-lang-sv</module>
+		<module>marytts-lang-cn</module>
+		<module>marytts-lang-ja</module>
 	</modules>
 </project>
