@@ -2,82 +2,199 @@
 <allophones features="vlng vheight vfront vrnd ctype cplace cvox"
 	name="sampa" xml:lang="zh">
 	<silence ph="_" />
-	<!--かくれこころのかけら [k] -->
-	<consonant cplace="v" ctype="s" cvoice="-" ph="k" />
-	<!--っか [kk] -->
-	<consonant cplace="v" ctype="s" cvoice="-" ph="kk" />
-	<!--がぎぐ～げご [g] -->
-	<consonant cplace="v" ctype="s" cvoice="+" ph="g" />
-	<!--っぐ [gg] -->
-	<consonant cplace="v" ctype="s" cvoice="+" ph="gg" />
-	<!--ささきせんせい [s] -->
-	<consonant cplace="a" ctype="f" cvoice="-" ph="s" />
-	<!--っせ [s] -->
-	<consonant cplace="a" ctype="f" cvoice="-" ph="ss" />
-	<!--ぞうのぞうはzooでじ [z] -->
-	<consonant cplace="a" ctype="f" cvoice="+" ph="z" />
-	<!--っぜ [z] -->
-	<consonant cplace="a" ctype="f" cvoice="+" ph="zz" />
-	<!--じじ [ʑ or d͡ʑ] -->
-	<consonant cplace="a" ctype="s" cvoice="+" ph="z\" />
-	<!--っじ [ddʑ] -->
-	<consonant cplace="a" ctype="s" cvoice="+" ph="_dz\" />
-	<!--しゃしゅしゃしん [ɕ] -->
-	<consonant cplace="a" ctype="f" cvoice="-" ph="s\" />
-	<!--っしょ [_ɕ] -->
-	<consonant cplace="a" ctype="f" cvoice="-" ph="_s\" />
-	<!--たたないというよりたてないて [t] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="t" />
-	<!--った [tt] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="tt" />
-	<!--むだだなのでだめだ [d] -->
-	<consonant cplace="a" ctype="s" cvoice="+" ph="d" />
-	<!--っだ [dd] -->
-	<consonant cplace="a" ctype="s" cvoice="+" ph="dd" />
-	<!--ちちゃんちょう～ちゃない [tɕ] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="ts\" />
-	<!--っちゃ [_tɕ] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="tts\" />
-	<!--つつみいつつ [ts] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="ts" />
-	<!--っつ [_ts] -->
-	<consonant cplace="a" ctype="s" cvoice="-" ph="tts" />
-	<!--ばななアイスのむなのにねねない [n] -->
-	<consonant cplace="a" ctype="n" cvoice="+" ph="n" />
-	<!--ほほキスほうほう、ほちきすとおなじあほ [h] -->
-	<consonant cplace="g" ctype="f" cvoice="-" ph="h" />
-	<!--ペラペラ君ピンポンぽい [p] -->
-	<consonant cplace="b" ctype="s" cvoice="-" ph="p" />
-	<!--っぱ [_p] -->
-	<consonant cplace="b" ctype="s" cvoice="-" ph="pp" />
-	<!--アリス、ばらぼろぼろばれちゃうよ [b] -->
-	<consonant cplace="b" ctype="s" cvoice="+" ph="b" />
-	<!--っば [_b] -->
-	<consonant cplace="b" ctype="s" cvoice="+" ph="bb" />
-	<!--ふふふふふ (爆）[ɸ] -->
-	<consonant cplace="b" ctype="f" cvoice="-" ph="p\" />
-	<!--まもるままにマリモおまもりもてまりました [m] -->
-	<consonant cplace="b" ctype="n" cvoice="+" ph="m" />
-	<!--にゃんにゃん、よいようやくぎゅっとやってきました [j] -->
-	<consonant cplace="u" ctype="r" cvoice="-" ph="j" />
-	<!--リリース （げんそうてき） [ɾ] -->
-	<consonant cplace="a" ctype="l" cvoice="-" ph="4" />
-	<!--わんわんはわににくわれた [w] -->
-	<consonant cplace="v" ctype="r" cvoice="-" ph="w" />
-	<!--あんぱんまんじゃん [ŋ] -->
-	<consonant cplace="v" ctype="n" cvoice="+" ph="N" />
-	<!--ヴォドカヴルストヴォイス [v] -->
-	<consonant cplace="v" ctype="f" cvoice="+" ph="v" />
+<vowel ph="a1" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="a2" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="a3" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="a4" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="a5" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="ai1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ai2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ai3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ai4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ai5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="an1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="an2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="an3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="an4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="an5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ang1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ang2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ang3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ang4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ang5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ao1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ao2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ao3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ao4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ao5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="e1" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="e2" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="e3" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="e4" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="e5" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="ei1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ei2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ei3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ei4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ei5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="en1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="en2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="en3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="en4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="en5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="eng1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="eng2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="eng3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="eng4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="eng5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="er2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="er3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="er4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="i1" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="i2" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="i3" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="i4" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="i5" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="ia1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ia2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ia3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ia4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ia5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ian1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ian2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ian3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ian4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ian5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iang1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iang2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iang3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iang4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iang5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iao1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iao2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iao3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iao4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iao5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ie1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ie2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ie3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ie4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ie5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="in1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="in2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="in3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="in4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="in5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ing1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ing2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ing3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ing4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ing5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iong1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iong2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iong3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iong4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iong5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iu1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iu2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iu3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iu4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="iu5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="o1" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="o2" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="o3" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="o4" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="o5" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="ong1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ong2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ong3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ong4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ong5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ou1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ou2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ou3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ou4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ou5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="u1" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="u2" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="u3" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="u4" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="u5" vfront="1" vheight="3" vlng="s" vrnd="-" />
+<vowel ph="u:2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="u:3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="u:4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="u:e4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ua1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ua2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ua3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ua4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ua5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uai1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uai2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uai3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uai4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uai5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uan1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uan2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uan3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uan4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uan5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uang1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uang2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uang3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uang4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uang5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ue1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ue2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ue3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ue4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ue5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ui1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ui2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ui3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ui4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="ui5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="un1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="un2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="un3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="un4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="un5" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uo1" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uo2" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uo3" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uo4" vfront="1" vheight="3" vlng="l" vrnd="-" />
+<vowel ph="uo5" vfront="1" vheight="3" vlng="l" vrnd="-" />
 
-	<!--かなだらまぱさじゃちゃかたぱは [a] -->
-	<vowel ph="a" vfront="1" vheight="3" vlng="s" vrnd="-" />
-	<!--いきいきこいい [i] -->
-	<vowel ph="i" vfront="1" vheight="1" vlng="s" vrnd="-" />
-	<!--ゆるゆるつくるくくるできる[u] -->
-	<vowel ph="u" vfront="3" vheight="1" vlng="s" vrnd="+" />
-<!---->
-	<vowel ph="e" vfront="1" vheight="2" vlng="s" vrnd="-" />
-<!---->
-	<vowel ph="o" vfront="3" vheight="2" vlng="s" vrnd="+" />
+<!-- consonant feature: map to en-US -->
+<consonant ph="b" ctype="s" cplace="l" cvox="+"/>
+<consonant ph="p" ctype="s" cplace="l" cvox="-"/>
+<consonant ph="m" ctype="n" cplace="l" cvox="-"/>
+<consonant ph="f" ctype="f" cplace="b" cvox="-"/>
+<consonant ph="d" ctype="s" cplace="a" cvox="+"/>
+<consonant ph="t" ctype="s" cplace="a" cvox="-"/>
+<consonant ph="n" ctype="n" cplace="a" cvox="+"/>
+<consonant ph="l" ctype="l" cplace="a" cvox="-"/>
+<consonant ph="g" ctype="s" cplace="v" cvox="+"/>
+<consonant ph="k" ctype="s" cplace="v" cvox="-"/>
+<consonant ph="h" ctype="f" cplace="g" cvox="-"/>
+<consonant ph="j" ctype="r" cplace="p" cvox="-"/>
+
+<consonant ph="q" ctype="s" cplace="l" cvox="-"/>
+<consonant ph="x" ctype="s" cplace="l" cvox="-"/>
+
+<consonant ph="z" ctype="f" cplace="a" cvox="+"/>
+
+<consonant ph="c" ctype="a" cplace="p" cvox="-"/>
+
+<consonant ph="s" ctype="f" cplace="a" cvox="-"/>
+<consonant ph="zh" ctype="a" cplace="p" cvox="+"/>
+<consonant ph="ch" ctype="a" cplace="p" cvox="-"/>
+
+<consonant ph="sh" ctype="s" cplace="l" cvox="-"/>
+
+<consonant ph="r" ctype="r" cplace="a" cvox="+"/>
+
+<consonant ph="y" ctype="s" cplace="l" cvox="-"/>
+<consonant ph="w" ctype="s" cplace="l" cvox="-"/>
 </allophones>
 

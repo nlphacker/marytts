@@ -358,7 +358,29 @@
 				<enabled>false</enabled>
 			</snapshots>
 			<url>http://jcenter.bintray.com</url>
+		</repository>		
+		<repository>
+		    <id>Atilika Open Source repository</id>
+		    <name>Atilika Open Source repository</name>
+		    <releases>  
+		        <enabled>true</enabled>  
+		    </releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		    <url>http://www.atilika.org/nexus/content/repositories/atilika</url>
 		</repository>
+		<repository>
+        	<id>nexus</id>
+        	<name>local private nexus</name>
+        	<url>http://maven.oschina.net/content/groups/public/</url>
+        	<releases>
+        		<enabled>true</enabled>
+        	</releases>
+        	<snapshots>
+        		<enabled>false</enabled>
+        	</snapshots>
+          </repository>            				
 	</repositories>
 
 	<build>

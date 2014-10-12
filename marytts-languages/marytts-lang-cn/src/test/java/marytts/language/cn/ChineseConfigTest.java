@@ -26,11 +26,11 @@ public class ChineseConfigTest {
 	@Test
 	public void canGet() {
 		MaryConfig m = MaryConfig.getLanguageConfig(new Locale("zh"));
-                System.out.print("here1\n");
+        System.out.print("here1\n");
 		assertNotNull(m);
-                System.out.print("here2\n");
+        System.out.print("here2\n");
 		assertTrue(((LanguageConfig)m).getLocales().contains(new Locale("zh")));
-                System.out.print("here3\n");
+        System.out.print("here3\n");
 	}
 	
 	

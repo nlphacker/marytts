@@ -165,7 +165,7 @@ public class TargetFeatureComputer
         }
         for (int i=0; i<bytes.length; i++) {
             if (buf.length() > 0) buf.append(" ");
-            buf.append(byteValuedDiscreteFeatureProcessors[i].getValues()[(int)bytes[i]]);
+            buf.append(byteValuedDiscreteFeatureProcessors[i].getValues()[(int)(0xFF & bytes[i])]);
         }
         for (int i=0; i<shorts.length; i++) {
             if (buf.length() > 0) buf.append(" ");

@@ -28,10 +28,22 @@ import com.chenlb.mmseg4j.Word;
 
 public class ChineseTokeniserAndPosTagger extends InternalModule
 {
+	ChineseDict chineseDict;
     public ChineseTokeniserAndPosTagger() {
     	//declares input as RAWMARYXML and output as TOKENS for locale zh-CN
     	super("ChineseTokeniser", MaryDataType.RAWMARYXML, MaryDataType.PARTSOFSPEECH, new Locale("zh"));
     	
+    	chineseDict = new ChineseDict();
+    	
+    	logger.info("word count:" + chineseDict.getWords());
+    	String pron = chineseDict.lookup("吖");
+    	pron = chineseDict.lookup("A");    	
+    	pron = chineseDict.lookup("ＡＢＣ");    	
+    	pron = chineseDict.lookup("吖A");    	
+    	pron = chineseDict.lookup("同行");
+    	pron = chineseDict.lookup("银行");
+    	pron = chineseDict.lookup("A啊啊");
+    	pron = chineseDict.lookup("中国古代");    	
     }
     
     public MaryData process(MaryData d)
@@ -85,27 +97,33 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
         	{
         		Element sentence = MaryXML.createElement(doc, MaryXML.SENTENCE);
 
-			Dictionary dic = Dictionary.getInstance();
-			Seg seg = null;
-			seg = new ComplexSeg(dic);
-			MMSeg mmSeg = new MMSeg(new StringReader(phrase), seg);
-			Word word = null;
-			while((word=mmSeg.next())!=null) {
-		            	Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
-
-				if (AllPunctuations.indexOf(word.getString()) >= 0) {
-		            		createdToken.setAttribute("pos", "$" + word.getString());					
-				}
-				else {
-					createdToken.setAttribute("pos", "CONTENT");
-				}
-
-  	            	        MaryDomUtils.setTokenText(createdToken, word.getString());
-
-				System.out.print(word.getString()+" -> "+word.getStartOffset());
-				System.out.println(", "+word.getEndOffset()+", "+ word.getType());
-    	            	        sentence.appendChild(createdToken);
-			}	
+				Dictionary dic = Dictionary.getInstance();
+				Seg seg = null;
+				seg = new ComplexSeg(dic);
+				MMSeg mmSeg = new MMSeg(new StringReader(phrase), seg);
+				Word word = null;
+				while((word=mmSeg.next())!=null) {
+			            	Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
+	
+					if (AllPunctuations.indexOf(word.getString()) >= 0) {
+			            		createdToken.setAttribute("pos", "$" + word.getString());					
+					}
+					else {
+						createdToken.setAttribute("pos", "CONTENT");
+					}
+					
+					String pinyin = chineseDict.lookup(word.getString());
+					if (pinyin != null)
+					{
+						createdToken.setAttribute("sounds_like", pinyin);
+					}
+	
+	  	            MaryDomUtils.setTokenText(createdToken, word.getString());
+	
+	  	            logger.info(word.getString()+" -> "+word.getStartOffset());
+	  	            logger.info(", "+word.getEndOffset()+", "+ word.getType());
+	    	            	        sentence.appendChild(createdToken);
+				}	
 	            
 			paragraphNode.appendChild(sentence);
         	}

@@ -51,10 +51,9 @@ public class ChinesePhonemiser extends InternalModule
                     !t.getAttribute("ph").contains("*")) {
                     continue;
                 } 
-                if (t.hasAttribute("sounds_like"))
-                    text = t.getAttribute("sounds_like");
-                else
-                    text = MaryDomUtils.tokenText(t);
+ 
+ 
+                text = MaryDomUtils.tokenText(t);
                 
                 String pos = null;
                 // use part-of-speech if available
@@ -62,33 +61,18 @@ public class ChinesePhonemiser extends InternalModule
                     pos = t.getAttribute("pos");
                 }
                 
-                if (text != null && !text.equals("") && (pos==null || !pos.startsWith("$")/*punctuation*/)) {
-                    // If text consists of several parts (e.g., because that was
-                    // inserted into the sounds_like attribute), each part
-                    // is transcribed separately.
-                    StringBuilder ph = new StringBuilder();
-                    String g2pMethod = null;
-                    StringTokenizer st = new StringTokenizer(text, " -");
-                    while (st.hasMoreTokens()) {
-                        String graph = st.nextToken();
-                        StringBuilder helper = new StringBuilder();
-                        
-                        
-                        String phon = phonemise(graph, pos, helper);
-                        
-                        
-                        if (ph.length() == 0) { // first part
-                            // The g2pMethod of the combined beast is
-                            // the g2pMethod of the first constituant.
-                            g2pMethod = helper.toString();
-                            ph.append(phon);
-                        } else { // following parts
-                            ph.append(" - ");
-                            // Reduce primary to secondary stress:
-                            ph.append(phon.replace('\'', ','));
-                       }
-                    }
-                    
+                if (text != null && !text.equals("") && (pos==null || !pos.startsWith("$")/*punctuation*/)) {               
+                	String ph = null;
+                	String g2pMethod = "lexicon";
+                	if (t.hasAttribute("sounds_like"))
+                	{                	
+                		ph = t.getAttribute("sounds_like");
+                	}
+                	else
+                	{
+                		// maybe English world
+                	}
+
                     if (ph != null && ph.length() > 0) {
                         setPh(t, ph.toString());
                         t.setAttribute("g2p_method", g2pMethod);
@@ -99,27 +83,6 @@ public class ChinesePhonemiser extends InternalModule
         result.setDocument(doc);
         return result;
     }
-
-    /**
-     * Phonemise the word text. call a lexcion to convert Hanzi to pinyin and phonemes
-     * 
-     * @param text the textual (graphemic) form of a word.
-     * @param pos the part-of-speech of the word
-     * @param g2pMethod This is an awkward way to return a second
-     * String parameter via a StringBuilder. If a phonemisation of the text is
-     * found, this parameter will be filled with the method of phonemisation
-     * ("lexicon", ... "rules"). 
-     * @return a phonemisation of the text if one can be generated, or
-     * null if no phonemisation method was successful.
-     */
-    public String phonemise(String text, String pos, StringBuilder g2pMethod)
-    {
-    	g2pMethod.append("rules");
-
-	// TODO: generate phonemes
-    	return null;
-    }
-    
     
     
     protected void setPh(Element t, String ph)

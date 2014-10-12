@@ -307,7 +307,12 @@ public class FeatureProcessorManager
             pauseSymbol = phoneset.getSilence().name();
         }
         addFeatureProcessor(new MaryLanguageFeatureProcessors.Phone("phone", phoneValues, pauseSymbol, segment));
-        addFeatureProcessor(new MaryLanguageFeatureProcessors.HalfPhoneUnitName(phoneValues, pauseSymbol));
+        
+        if (!phoneset.getLocale().getLanguage().equals("zh"))
+        {
+        	addFeatureProcessor(new MaryLanguageFeatureProcessors.HalfPhoneUnitName(phoneValues, pauseSymbol));
+        }
+        	
         addFeatureProcessor(new MaryLanguageFeatureProcessors.SegOnsetCoda(phoneset));
         // Phone features:
         Set<String> featureNames;
