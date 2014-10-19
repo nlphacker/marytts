@@ -67,16 +67,16 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
 
         while ((paragraphNode = ni.nextNode()) != null) {
 		String EndPunctuations = "？！。";
-		String AllPunctuations = "？！。“‘（）；?!.\"'()[];";
+		String AllPunctuations = "？！。?!.“‘；\"';（）【】()[],，：:";
 			
-        	String text = MaryDomUtils.getPlainTextBelow(paragraphNode);
+        	String text = MaryDomUtils.getPlainTextBelow(paragraphNode).trim();
         	
         	//cut into sentences 
         	List<String> phrases = new ArrayList<String>();
         	String currPhrase = "";
         	for(int i=0;i<text.length();i++)
         	{
-			boolean endofSentence = EndPunctuations.indexOf(text.charAt(i)) >= 0;			
+        		boolean endofSentence = EndPunctuations.indexOf(text.charAt(i)) >= 0;			
         		currPhrase += text.charAt(i);
         		if(endofSentence)
         		{
@@ -85,7 +85,7 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
         		}
         	}
 
-        	if(currPhrase.length()>0)
+        	if(currPhrase.length() > 0)
         	{
         		phrases.add(currPhrase);
         	}
@@ -102,16 +102,31 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
 				seg = new ComplexSeg(dic);
 				MMSeg mmSeg = new MMSeg(new StringReader(phrase), seg);
 				Word word = null;
-				while((word=mmSeg.next())!=null) {
-			            	Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
-	
-					if (AllPunctuations.indexOf(word.getString()) >= 0) {
-			            		createdToken.setAttribute("pos", "$" + word.getString());					
-					}
-					else {
-						createdToken.setAttribute("pos", "CONTENT");
-					}
-					
+				
+				int prevOffset = 0;
+				while((word=mmSeg.next())!=null) {			        
+					Element createdToken = MaryXML.createElement(doc, MaryXML.TOKEN);
+				        
+			        if (word.getStartOffset() != prevOffset)
+			        {
+			            // punctuation is skipped by mmseg	
+						Element puncToken = MaryXML.createElement(doc, MaryXML.TOKEN);
+			        	String punc = phrase.substring(prevOffset, word.getStartOffset());
+			            puncToken.setAttribute("pos", "$" + punc);					
+		  	            logger.info("punc: "+ punc);
+		  	            MaryDomUtils.setTokenText(puncToken, punc);		  	            
+	           	        sentence.appendChild(puncToken);
+			        }
+			        
+			        if (word.getType().equals("word"))
+			        {
+			        	createdToken.setAttribute("pos", "CONTENT");			        		
+			        }
+			        else
+			        {
+			        	createdToken.setAttribute("pos", "SYMBOL");			        		
+			        }
+			        
 					String pinyin = chineseDict.lookup(word.getString());
 					if (pinyin != null)
 					{
@@ -121,11 +136,25 @@ public class ChineseTokeniserAndPosTagger extends InternalModule
 	  	            MaryDomUtils.setTokenText(createdToken, word.getString());
 	
 	  	            logger.info(word.getString()+" -> "+word.getStartOffset());
-	  	            logger.info(", "+word.getEndOffset()+", "+ word.getType());
-	    	            	        sentence.appendChild(createdToken);
+	  	            logger.info(", "+ word.getEndOffset()+", "+ word.getType());
+           	        sentence.appendChild(createdToken);
+	    	            	        
+	    	        prevOffset = word.getEndOffset();
 				}	
-	            
-			paragraphNode.appendChild(sentence);
+	
+				if (prevOffset != phrase.length())
+				{
+		            // punctuation is skipped by mmseg	
+					Element puncToken = MaryXML.createElement(doc, MaryXML.TOKEN);
+		        	String punc = phrase.substring(prevOffset, phrase.length());
+		            puncToken.setAttribute("pos", "$" + punc);					
+	  	            logger.info("punc: "+ punc);
+	  	            MaryDomUtils.setTokenText(puncToken, punc);		  	            	  	            
+           	        sentence.appendChild(puncToken);
+				}
+				
+				
+				paragraphNode.appendChild(sentence);
         	}
         }
         
