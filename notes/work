@@ -30,7 +30,7 @@ local server install
 
 * Issues / Solultion
 
-the volume issue of HMM font 
+1. the volume issue of HMM font 
    
 	GV method: gradient or derivative (default gradient)
 
@@ -39,3 +39,22 @@ the volume issue of HMM font
 		voice.cmu-slt-hsmm.maxMgcGvIter = 10
 		voice.cmu-slt-hsmm.maxLf0GvIter = 10
 		voice.cmu-slt-hsmm.maxStrGvIter = 10
+
+
+2. Re: ERROR [+2121] HInit: Too FewObservation Sequences [0]
+	http://hts.sp.nitech.ac.jp/hts-users/spool/2008/msg00259.html
+
+	work around by fixing the alignment . normally due to the sample is low for some phone
+
+
+3.  change file names with rename 
+        rename -n 's/^00(\d+)/hts_zhcn_$1/' *.wav
+        rename -v 's/^00(\d+)/hts_zhcn_$1/' *.wav
+
+
+4.  set HMM training 
+
+../../../../lib/external/check_install_external_programs.sh  -check /usr/local/bin/hts_engine /usr/local/SPTK/bin/ /usr/local/HTS-2.2beta/bin/ /usr/local/ActiveTcl-8.4/bin/  /home/nlphacker/OpenSpeech/tools/festvox/src/ehmm/bin/
+
+
+
